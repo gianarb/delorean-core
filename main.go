@@ -23,25 +23,31 @@ func main() {
 		pwmB.Off()
 
 		mqttAdaptor.On("go-iot", func(data []byte) {
-			if string(data) == "su" {
+			if string(data) == "giu" {
 				dirA.Off()
 				dirB.Off()
 				pwmA.On()
 				pwmB.On()
 			}
-			if string(data) == "giu" {
+			if string(data) == "stop" {
 				dirA.On()
 				dirB.On()
 				pwmA.Off()
 				pwmB.Off()
 			}
-			if string(data) == "left" {
+			if string(data) == "su" {
+				dirA.On()
+				dirB.On()
+				pwmA.On()
+				pwmB.On()
+			}
+			if string(data) == "right" {
 				dirA.Off()
 				dirB.On()
 				pwmA.Off()
 				pwmB.On()
 			}
-			if string(data) == "right" {
+			if string(data) == "left" {
 				dirA.On()
 				dirB.Off()
 				pwmA.On()
